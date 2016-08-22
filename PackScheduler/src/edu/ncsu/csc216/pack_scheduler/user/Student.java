@@ -122,8 +122,9 @@ public class Student {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
+	/**
+	 * Generates hashcode for student using all fields
+	 * @return result the hashcode for course
 	 */
 	@Override
 	public int hashCode() {
