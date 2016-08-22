@@ -7,6 +7,18 @@ public class Student {
 	private String email;
 	private String hashPW;
 	private int maxCredits;
+	public Student(String firstName, String lastName, String id, String email, String hashPW, int maxCredits) {
+		setFirstName(this.firstName);
+		setLastName(this.lastName);
+		setEmail(this.email);
+		setHashPW(this.hashPW);
+		setMaxCredits(this.maxCredits);
+	}
+
+	public Student(String firstName, String lastName, String id, String email, String hashPW) {
+		this(firstName, lastName, id, email, hashPW, 18);
+	}
+
 	/**
 	 * @return the email
 	 */
@@ -19,6 +31,15 @@ public class Student {
 	 */
 	public void setEmail(String email) {
 		this.email = email;
+		if (email.isEmpty() || email == null) {
+			throw new IllegalArgumentException("Email is null or empty");
+		}
+		if (!email.contains("@") || !email.contains(".")) {
+			throw new IllegalArgumentException("Emails need to contain @ and . characters");
+		}
+		if (email.lastIndexOf('.') < email.indexOf('@')) {
+			throw new IllegalArgumentException("Invalid email address");
+		}
 	}
 
 	/**
@@ -33,6 +54,9 @@ public class Student {
 	 */
 	public void setHashPW(String hashPW) {
 		this.hashPW = hashPW;
+		if (hashPW.isEmpty() || hashPW == null) {
+			throw new IllegalArgumentException("Password is null or empty");
+		}
 	}
 
 	/**
@@ -40,6 +64,7 @@ public class Student {
 	 */
 	public int getMaxCredits() {
 		return maxCredits;
+		
 	}
 
 	/**
@@ -47,6 +72,14 @@ public class Student {
 	 */
 	public void setMaxCredits(int maxCredits) {
 		this.maxCredits = maxCredits;
+		if (maxCredits < 3 || maxCredits > 18) {
+			throw new IllegalArgumentException("Invalid credit hours");
+		}
+	}
+
+	public String getFirstName() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/**
@@ -54,6 +87,14 @@ public class Student {
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+		if (email.isEmpty() || email == null) {
+			throw new IllegalArgumentException("First Name is null or empty");
+		}
+	}
+
+	public String getLastName() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/**
@@ -61,6 +102,14 @@ public class Student {
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+		if (lastName.isEmpty() || lastName == null) {
+			throw new IllegalArgumentException("Last Name is null or empty");
+		}
+	}
+
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/**
@@ -68,33 +117,78 @@ public class Student {
 	 */
 	public void setId(String id) {
 		this.id = id;
+		if (id.isEmpty() || id == null) {
+			throw new IllegalArgumentException("ID is null or empty");
+		}
 	}
 
-	public Student(String firstName, String lastName, String id, String email, String hashPW, int maxCredits) {
-		setFirstName(this.firstName);
-		setLastName(this.lastName);
-		setEmail(this.email);
-		setHashPW(this.hashPW);
-		setMaxCredits(this.maxCredits);
-	}
-	
-	public Student(String firstName, String lastName, String id, String email, String hashPW) {
-		Student(this.firstName, this.lastName, this.id, this.email, this.hashPW, 18);
-	}
-	
-	public String getFirstName() {
-		// TODO Auto-generated method stub
-		return null;
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((hashPW == null) ? 0 : hashPW.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + maxCredits;
+		return result;
 	}
 
-	public String getLastName() {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Generates equality based on fields
+	 * @param obj a student object
+	 * @return boolean if both objects are equal
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (hashPW == null) {
+			if (other.hashPW != null)
+				return false;
+		} else if (!hashPW.equals(other.hashPW))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (maxCredits != other.maxCredits)
+			return false;
+		return true;
 	}
-	
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
+
+	/**
+	 * Returns string as firstname,lastname,id,hashedPassword,maxCredits
+	 * @return concatenated string of fields
+	 */
+	@Override
+	public String toString() {
+		return firstName + "," + lastName + "," + id + "," + hashPW + "," + maxCredits;
 	}
 
 }
