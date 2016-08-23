@@ -8,15 +8,48 @@ public class Student {
 	private String hashPW;
 	private int maxCredits;
 	public Student(String firstName, String lastName, String id, String email, String hashPW, int maxCredits) {
-		setFirstName(this.firstName);
-		setLastName(this.lastName);
-		setEmail(this.email);
-		setHashPW(this.hashPW);
-		setMaxCredits(this.maxCredits);
+		setFirstName(firstName);
+		setLastName(lastName);
+		setEmail(email);
+		setHashPW(hashPW);
+		setMaxCredits(maxCredits);
 	}
 
 	public Student(String firstName, String lastName, String id, String email, String hashPW) {
 		this(firstName, lastName, id, email, hashPW, 18);
+	}
+
+	/**
+	 * @param firstName the firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		if (firstName.isEmpty() || firstName == null) {
+			throw new IllegalArgumentException("First Name is null or empty");
+		}
+		this.firstName = firstName;
+
+	}
+
+	public String getFirstName() {
+		// TODO Auto-generated method stub
+		return firstName;
+	}
+
+	/**
+	 * @param lastName the lastName to set
+	 */
+	public void setLastName(String lastName) {
+		if (lastName.isEmpty() || lastName == null) {
+			throw new IllegalArgumentException("Last Name is null or empty");
+			
+		}
+		this.lastName = lastName;
+
+	}
+
+	public String getLastName() {
+		// TODO Auto-generated method stub
+		return lastName;
 	}
 
 	/**
@@ -30,7 +63,6 @@ public class Student {
 	 * @param email the email to set
 	 */
 	public void setEmail(String email) {
-		this.email = email;
 		if (email.isEmpty() || email == null) {
 			throw new IllegalArgumentException("Email is null or empty");
 		}
@@ -40,6 +72,8 @@ public class Student {
 		if (email.lastIndexOf('.') < email.indexOf('@')) {
 			throw new IllegalArgumentException("Invalid email address");
 		}
+		this.email = email;
+
 	}
 
 	/**
@@ -53,10 +87,11 @@ public class Student {
 	 * @param hashPW the hashPW to set
 	 */
 	public void setHashPW(String hashPW) {
-		this.hashPW = hashPW;
 		if (hashPW.isEmpty() || hashPW == null) {
 			throw new IllegalArgumentException("Password is null or empty");
 		}
+		this.hashPW = hashPW;
+
 	}
 
 	/**
@@ -71,55 +106,27 @@ public class Student {
 	 * @param maxCredits the maxCredits to set
 	 */
 	public void setMaxCredits(int maxCredits) {
-		this.maxCredits = maxCredits;
 		if (maxCredits < 3 || maxCredits > 18) {
 			throw new IllegalArgumentException("Invalid credit hours");
 		}
-	}
+		this.maxCredits = maxCredits;
 
-	public String getFirstName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/**
-	 * @param firstName the firstName to set
-	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-		if (email.isEmpty() || email == null) {
-			throw new IllegalArgumentException("First Name is null or empty");
-		}
-	}
-
-	public String getLastName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/**
-	 * @param lastName the lastName to set
-	 */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-		if (lastName.isEmpty() || lastName == null) {
-			throw new IllegalArgumentException("Last Name is null or empty");
-		}
 	}
 
 	public String getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(String id) {
-		this.id = id;
 		if (id.isEmpty() || id == null) {
 			throw new IllegalArgumentException("ID is null or empty");
 		}
+		this.id = id;
+
 	}
 
 	/**
