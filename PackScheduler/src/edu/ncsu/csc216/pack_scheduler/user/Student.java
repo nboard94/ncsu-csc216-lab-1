@@ -20,7 +20,7 @@ public class Student {
 		this(firstName, lastName, id, email, hashPW, 18);
 	}
 
-	/**
+	/**sets the firstName variable
 	 * @param firstName the firstName to set
 	 */
 	public void setFirstName(String firstName) {
@@ -35,7 +35,7 @@ public class Student {
 		return firstName;
 	}
 
-	/**
+	/**sets the LastName variable
 	 * @param lastName the lastName to set
 	 */
 	public void setLastName(String lastName) {
@@ -52,7 +52,7 @@ public class Student {
 		return lastName;
 	}
 
-	/**
+	/**@sets the id variable
 	 * @param id the id to set
 	 */
 	public void setId(String id) {
@@ -68,7 +68,7 @@ public class Student {
 		return id;
 	}
 
-	/**
+	/**sets the email variable
 	 * @param email the email to set
 	 */
 	public void setEmail(String email) {
@@ -106,7 +106,7 @@ public class Student {
 	/**
 	 * @return the hashPW
 	 */
-	public String getHashPW() {
+	public String getPASSWORD() {
 		return hashPW;
 	}
 
