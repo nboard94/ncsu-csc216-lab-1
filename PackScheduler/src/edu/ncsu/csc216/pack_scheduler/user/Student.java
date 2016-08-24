@@ -13,7 +13,7 @@ public class Student {
 		setLastName(lastName);
 		setId(id);
 		setEmail(email);
-		setHashPW(hashPW);
+		setPassword(hashPW);
 		setMaxCredits(maxCredits);
 	}
 
