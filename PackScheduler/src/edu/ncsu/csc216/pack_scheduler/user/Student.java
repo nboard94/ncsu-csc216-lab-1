@@ -1,6 +1,7 @@
 package edu.ncsu.csc216.pack_scheduler.user;
 
 public class Student {
+	static public final int MAX_CREDITS = 18;
 	private String firstName;
 	private String lastName;
 	private String id;
