@@ -13,6 +13,7 @@ import edu.ncsu.csc216.pack_scheduler.user.Student;
 public class StudentRecordIO {
 
 	public static ArrayList<Student> readStudentRecords(String fileName) throws FileNotFoundException {
+<<<<<<< HEAD
 		ArrayList<Student> md = new ArrayList<Student>();
 		File file = new File(fileName);
 		Scanner scan = new Scanner(file).useDelimiter(",");
@@ -29,9 +30,14 @@ public class StudentRecordIO {
 		scan.close();
 		
 		return md;
+=======
+		// TODO Auto-generated method stub
+		return null;
+>>>>>>> branch 'master' of https://github.ncsu.edu/engr-csc216-fall2016/csc216-201-L-01.git
 	}
 
 	public static void writeStudentRecords(String fileName, ArrayList<Student> studentDirectory) throws IOException {
+		// TODO Auto-generated method stub
 		
 	}
 

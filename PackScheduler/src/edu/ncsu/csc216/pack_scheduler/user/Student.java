@@ -1,6 +1,7 @@
 package edu.ncsu.csc216.pack_scheduler.user;
 
 public class Student {
+
 	static public final int MAX_CREDITS = 18;
 	private String firstName;
 	private String lastName;
@@ -13,7 +14,6 @@ public class Student {
 		setLastName(lastName);
 		setId(id);
 		setEmail(email);
-		
 		setPassword(hashPW);
 		setMaxCredits(maxCredits);
 	}
@@ -87,11 +87,9 @@ public class Student {
 	
 	}
 
-	/**
-	 * @return the email
-	 */
 	public String getEmail() {
 		return email;
+
 	}
 
 	/**
@@ -200,5 +198,8 @@ public class Student {
 	public String toString() {
 		return firstName + "," + lastName + "," + id + "," + hashPW + "," + maxCredits;
 	}
-
+	public static void main(String[] args){
+	    Student student =  new Student("James", "Ticatic", "2000", "@.", "2020202", 5);
+	    System.out.println(student.toString());
+	}
 }
