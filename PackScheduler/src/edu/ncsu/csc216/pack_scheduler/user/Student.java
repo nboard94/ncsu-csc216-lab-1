@@ -1,7 +1,8 @@
 package edu.ncsu.csc216.pack_scheduler.user;
 
 public class Student {
-	public static final int MAX_CREDITS = 19;
+
+	static public final int MAX_CREDITS = 18;
 	private String firstName;
 	private String lastName;
 	private String id;
@@ -11,6 +12,7 @@ public class Student {
 	public Student(String firstName, String lastName, String id, String email, String hashPW, int maxCredits) {
 		setFirstName(firstName);
 		setLastName(lastName);
+		setId(id);
 		setEmail(email);
 		setPassword(hashPW);
 		setMaxCredits(maxCredits);
@@ -20,7 +22,7 @@ public class Student {
 		this(firstName, lastName, id, email, hashPW, 18);
 	}
 
-	/**
+	/**sets the firstName variable
 	 * @param firstName the firstName to set
 	 */
 	public void setFirstName(String firstName) {
@@ -32,11 +34,10 @@ public class Student {
 	}
 
 	public String getFirstName() {
-		// TODO Auto-generated method stub
 		return firstName;
 	}
 
-	/**
+	/**sets the LastName variable
 	 * @param lastName the lastName to set
 	 */
 	public void setLastName(String lastName) {
@@ -53,14 +54,23 @@ public class Student {
 		return lastName;
 	}
 
-	/**
-	 * @return the email
+	/**@sets the id variable
+	 * @param id the id to set
 	 */
-	public String getEmail() {
-		return email;
+	private void setId(String id) {
+		if (id.isEmpty() || id == null) {
+			throw new IllegalArgumentException("ID is null or empty");
+		}
+		this.id = id;
+	
 	}
 
-	/**
+	public String getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+	/**sets the email variable
 	 * @param email the email to set
 	 */
 	public void setEmail(String email) {
@@ -74,14 +84,12 @@ public class Student {
 			throw new IllegalArgumentException("Invalid email address");
 		}
 		this.email = email;
-
+	
 	}
 
-	/**
-	 * @return the hashPW
-	 */
-	public String getPassword() {
-		return hashPW;
+	public String getEmail() {
+		return email;
+
 	}
 
 	/**
@@ -92,17 +100,16 @@ public class Student {
 			throw new IllegalArgumentException("Password is null or empty");
 		}
 		this.hashPW = hashPW;
-
+	
 	}
 
 	/**
-	 * @return the maxCredits
+	 * @return the hashPW
 	 */
-	public int getMaxCredits() {
-		return maxCredits;
-		
+	public String getPassword() {
+		return hashPW;
 	}
-
+ 
 	/**
 	 * @param maxCredits the maxCredits to set
 	 */
@@ -111,23 +118,15 @@ public class Student {
 			throw new IllegalArgumentException("Invalid credit hours");
 		}
 		this.maxCredits = maxCredits;
-
-	}
-
-	public String getId() {
-		// TODO Auto-generated method stub
-		return id;
+	
 	}
 
 	/**
-	 * @param id the id to set
+	 * @return the maxCredits
 	 */
-	public void setId(String id) {
-		if (id.isEmpty() || id == null) {
-			throw new IllegalArgumentException("ID is null or empty");
-		}
-		this.id = id;
-
+	public int getMaxCredits() {
+		return maxCredits;
+		
 	}
 
 	/**
