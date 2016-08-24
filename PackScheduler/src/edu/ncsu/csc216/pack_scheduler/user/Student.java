@@ -55,7 +55,7 @@ public class Student {
 	/**@sets the id variable
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	private void setId(String id) {
 		if (id.isEmpty() || id == null) {
 			throw new IllegalArgumentException("ID is null or empty");
 		}
@@ -95,7 +95,7 @@ public class Student {
 	/**
 	 * @param hashPW the hashPW to set
 	 */
-	public void setHashPW(String hashPW) {
+	public void setPassword(String hashPW) {
 		if (hashPW.isEmpty() || hashPW == null) {
 			throw new IllegalArgumentException("Password is null or empty");
 		}
@@ -106,7 +106,7 @@ public class Student {
 	/**
 	 * @return the hashPW
 	 */
-	public String HashPW() {
+	public String getPassword() {
 		return hashPW;
 	}
  
