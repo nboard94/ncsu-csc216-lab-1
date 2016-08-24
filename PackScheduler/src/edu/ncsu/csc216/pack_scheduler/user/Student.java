@@ -106,10 +106,10 @@ public class Student {
 	/**
 	 * @return the hashPW
 	 */
-	public String getPASSWORD() {
+	public String HashPW() {
 		return hashPW;
 	}
-
+ 
 	/**
 	 * @param maxCredits the maxCredits to set
 	 */

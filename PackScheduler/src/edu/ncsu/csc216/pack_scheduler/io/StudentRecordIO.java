@@ -9,12 +9,12 @@ import edu.ncsu.csc216.pack_scheduler.user.Student;
 public class StudentRecordIO {
 
 	public static ArrayList<Student> readStudentRecords(String fileName) throws FileNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Student> md = new ArrayList<Student>();
+		
+		return md;
 	}
 
 	public static void writeStudentRecords(String fileName, ArrayList<Student> studentDirectory) throws IOException {
-		// TODO Auto-generated method stub
 		
 	}
 
