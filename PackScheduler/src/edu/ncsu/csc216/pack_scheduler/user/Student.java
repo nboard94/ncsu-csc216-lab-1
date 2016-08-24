@@ -19,7 +19,7 @@ public class Student {
 	}
 
 	public Student(String firstName, String lastName, String id, String email, String hashPW) {
-		this(firstName, lastName, id, email, hashPW, 18);
+		this(firstName, lastName, id, email, hashPW, MAX_CREDITS);
 	}
 
 	/**sets the firstName variable
