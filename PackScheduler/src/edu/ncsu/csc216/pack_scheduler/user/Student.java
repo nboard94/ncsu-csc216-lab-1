@@ -1,7 +1,7 @@
 package edu.ncsu.csc216.pack_scheduler.user;
 
 public class Student {
-	public static int MAX_CREDITS = 19;
+	public static final int MAX_CREDITS = 19;
 	private String firstName;
 	private String lastName;
 	private String id;
@@ -12,7 +12,7 @@ public class Student {
 		setFirstName(firstName);
 		setLastName(lastName);
 		setEmail(email);
-		setHashPW(hashPW);
+		setPassword(hashPW);
 		setMaxCredits(maxCredits);
 	}
 
@@ -87,7 +87,7 @@ public class Student {
 	/**
 	 * @param hashPW the hashPW to set
 	 */
-	public void setHashPW(String hashPW) {
+	public void setPassword(String hashPW) {
 		if (hashPW.isEmpty() || hashPW == null) {
 			throw new IllegalArgumentException("Password is null or empty");
 		}
