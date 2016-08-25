@@ -3,6 +3,7 @@ package edu.ncsu.csc216.pack_scheduler.io;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -29,12 +30,17 @@ public class StudentRecordIO {
 			md.add(s);
 		}
 		scan.close();
-		
 		return md;
 	}
 
 	public static void writeStudentRecords(String fileName, ArrayList<Student> studentDirectory) throws IOException {
-		// TODO Auto-generated method stub
+		
+		File file = new File(fileName);
+		FileWriter writ = new FileWriter(file);
+		for (int i = 0; i <  studentDirectory.size(); i++) {
+			writ.write(studentDirectory.toString() + "/n");
+		}
+		writ.close();
 		
 	}
 
