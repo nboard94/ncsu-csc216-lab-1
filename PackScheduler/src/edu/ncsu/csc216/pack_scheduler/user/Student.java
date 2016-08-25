@@ -26,7 +26,7 @@ public class Student {
 	 * @param firstName the firstName to set
 	 */
 	public void setFirstName(String firstName) {
-		if (firstName.isEmpty() || firstName == null) {
+		if (firstName == null || firstName.isEmpty()) {
 			throw new IllegalArgumentException("First Name is null or empty");
 		}
 		this.firstName = firstName;
@@ -41,7 +41,7 @@ public class Student {
 	 * @param lastName the lastName to set
 	 */
 	public void setLastName(String lastName) {
-		if (lastName.isEmpty() || lastName == null) {
+		if (lastName == null || lastName.isEmpty()) {
 			throw new IllegalArgumentException("Last Name is null or empty");
 			
 		}
@@ -58,7 +58,7 @@ public class Student {
 	 * @param id the id to set
 	 */
 	private void setId(String id) {
-		if (id.isEmpty() || id == null) {
+		if (id == null || id.isEmpty()) {
 			throw new IllegalArgumentException("ID is null or empty");
 		}
 		this.id = id;
@@ -74,7 +74,7 @@ public class Student {
 	 * @param email the email to set
 	 */
 	public void setEmail(String email) {
-		if (email.isEmpty() || email == null) {
+		if (email == null || email.isEmpty()) {
 			throw new IllegalArgumentException("Email is null or empty");
 		}
 		if (!email.contains("@") || !email.contains(".")) {
@@ -96,7 +96,7 @@ public class Student {
 	 * @param hashPW the hashPW to set
 	 */
 	public void setPassword(String hashPW) {
-		if (hashPW.isEmpty() || hashPW == null) {
+		if (hashPW == null || hashPW.isEmpty()) {
 			throw new IllegalArgumentException("Password is null or empty");
 		}
 		this.hashPW = hashPW;
