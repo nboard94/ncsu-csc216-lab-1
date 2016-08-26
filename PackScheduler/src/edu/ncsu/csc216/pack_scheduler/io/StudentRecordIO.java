@@ -19,7 +19,7 @@ public class StudentRecordIO {
 		Scanner scan = new Scanner (file);
 		try {
 			while (scan.hasNextLine()) {
-				processStudent(scan.nextLine());
+				md.add(processStudent(scan.nextLine()));
 			}
 		}
 		catch (NoSuchElementException e) {
