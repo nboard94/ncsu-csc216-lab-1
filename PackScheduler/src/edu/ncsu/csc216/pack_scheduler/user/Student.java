@@ -1,7 +1,15 @@
 package edu.ncsu.csc216.pack_scheduler.user;
+/**Class for the Student object, has getters, setters, and methods to overwrite equals, hashCode,
+ * and toString default java classes
+ * @author James Ticatic
+ * @author Nicholas Board
 
+ */
 public class Student {
 
+	/**
+	 * CONSTANT FOR MAXIMUM NUMBER OF CREDITS
+	 */
 	static public final int MAX_CREDITS = 18;
 	private String firstName;
 	private String lastName;
@@ -9,6 +17,16 @@ public class Student {
 	private String email;
 	private String hashPW;
 	private int maxCredits;
+	
+	/** 
+	 * constructor for Student class
+	 * @param firstName the first name
+	 * @param lastName the last name
+	 * @param id the id 
+	 * @param email the email 
+	 * @param hashPW the hashed password 
+	 * @param maxCredits the maximum amount of credits
+	 */
 	public Student(String firstName, String lastName, String id, String email, String hashPW, int maxCredits) {
 		setFirstName(firstName);
 		setLastName(lastName);
@@ -18,6 +36,14 @@ public class Student {
 		setMaxCredits(maxCredits);
 	}
 
+	/** 
+	 * constructor for Student class that defaults max credits to 18
+	 * @param firstName the first name
+	 * @param lastName the last name
+	 * @param id the id 
+	 * @param email the email
+	 * @param hashPW the hashed pw
+	 */
 	public Student(String firstName, String lastName, String id, String email, String hashPW) {
 		this(firstName, lastName, id, email, hashPW, MAX_CREDITS);
 	}
@@ -33,6 +59,9 @@ public class Student {
 
 	}
 
+	/** Getter for first name
+	 * @return the first name
+	 */
 	public String getFirstName() {
 		return firstName;
 	}
@@ -42,31 +71,34 @@ public class Student {
 	 */
 	public void setLastName(String lastName) {
 		if (lastName == null || lastName.isEmpty()) {
-			throw new IllegalArgumentException("Last Name is null or empty");
+			throw new IllegalArgumentException("Invalid last name");
 			
 		}
 		this.lastName = lastName;
 
 	}
-
+	/** Getter for last name
+	 * @return the last name
+	 */
 	public String getLastName() {
-		// TODO Auto-generated method stub
 		return lastName;
 	}
 
-	/**@sets the id variable
+	/**sets the id variable
 	 * @param id the id to set
 	 */
 	private void setId(String id) {
 		if (id == null || id.isEmpty()) {
-			throw new IllegalArgumentException("ID is null or empty");
+			throw new IllegalArgumentException("Invalid Id");
 		}
 		this.id = id;
 	
 	}
-
+	
+	/**getter for Id
+	 * @return the Id
+	 */
 	public String getId() {
-		// TODO Auto-generated method stub
 		return id;
 	}
 
@@ -75,53 +107,56 @@ public class Student {
 	 */
 	public void setEmail(String email) {
 		if (email == null || email.isEmpty()) {
-			throw new IllegalArgumentException("Email is null or empty");
+			throw new IllegalArgumentException("Invalid email");
 		}
 		if (!email.contains("@") || !email.contains(".")) {
 			throw new IllegalArgumentException("Emails need to contain @ and . characters");
 		}
 		if (email.lastIndexOf('.') < email.indexOf('@')) {
-			throw new IllegalArgumentException("Invalid email address");
+			throw new IllegalArgumentException("Invalid email");
 		}
 		this.email = email;
 	
 	}
 
+	/** Getter for email
+	 * @return the email
+	 */
 	public String getEmail() {
 		return email;
 
 	}
 
-	/**
+	/** setter for password
 	 * @param hashPW the hashPW to set
 	 */
 	public void setPassword(String hashPW) {
 		if (hashPW == null || hashPW.isEmpty()) {
-			throw new IllegalArgumentException("Password is null or empty");
+			throw new IllegalArgumentException("Invalid password");
 		}
 		this.hashPW = hashPW;
 	
 	}
 
-	/**
+	/** Getter for password
 	 * @return the hashPW
 	 */
 	public String getPassword() {
 		return hashPW;
 	}
  
-	/**
+	/** Sets number of max credits
 	 * @param maxCredits the maxCredits to set
 	 */
 	public void setMaxCredits(int maxCredits) {
-		if (maxCredits < 3 || maxCredits > 18) {
-			throw new IllegalArgumentException("Invalid credit hours");
+		if (maxCredits < 3 || maxCredits > MAX_CREDITS) {
+			throw new IllegalArgumentException("Invalid max credits");
 		}
 		this.maxCredits = maxCredits;
 	
 	}
 
-	/**
+	/** Getter for max credits field
 	 * @return the maxCredits
 	 */
 	public int getMaxCredits() {
@@ -197,9 +232,5 @@ public class Student {
 	@Override
 	public String toString() {
 		return firstName + "," + lastName + "," + id + "," + hashPW + "," + maxCredits;
-	}
-	public static void main(String[] args){
-	    Student student =  new Student("James", "Ticatic", "2000", "@.", "2020202", 5);
-	    System.out.println(student.toString());
 	}
 }
