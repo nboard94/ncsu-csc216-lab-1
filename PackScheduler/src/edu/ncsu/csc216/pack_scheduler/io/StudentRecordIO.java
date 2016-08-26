@@ -56,7 +56,6 @@ public class StudentRecordIO {
 		}
 		catch (NoSuchElementException e) {
 			scan.close();
-			throw new IllegalArgumentException();
 		}
 		scan.close();
 		Student s = new Student(firstName,lastName,id,email,hashPW,maxCredits);
