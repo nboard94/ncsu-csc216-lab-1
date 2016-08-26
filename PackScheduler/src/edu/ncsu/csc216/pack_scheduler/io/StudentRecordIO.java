@@ -32,7 +32,7 @@ public class StudentRecordIO {
 		File file = new File(fileName);
 		FileWriter writ = new FileWriter(file);
 		for (int i = 0; i <  studentDirectory.size(); i++) {
-			writ.write(studentDirectory.toString());
+			writ.write(studentDirectory.get(i).toString());
 		}
 		writ.close();
 		
