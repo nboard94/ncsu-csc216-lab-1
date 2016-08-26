@@ -1,7 +1,6 @@
 package edu.ncsu.csc216.pack_scheduler.io;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -37,7 +36,7 @@ public class StudentRecordIO {
 		File file = new File(fileName);
 		FileWriter writ = new FileWriter(file);
 		for (int i = 0; i <  studentDirectory.size(); i++) {
-			writ.write(studentDirectory.toString() + "/n");
+			writ.write(studentDirectory.toString());
 		}
 		writ.close();
 		
