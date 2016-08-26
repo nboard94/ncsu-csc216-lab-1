@@ -1,6 +1,7 @@
 package edu.ncsu.csc216.pack_scheduler.io;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,8 +16,7 @@ public class StudentRecordIO {
 
 	public static ArrayList<Student> readStudentRecords(String fileName) throws FileNotFoundException {
 		ArrayList<Student> md = new ArrayList<Student>();
-		File file = new File(fileName);
-		Scanner scan = new Scanner (file);
+		Scanner scan = new Scanner (new FileInputStream(fileName));
 		while (scan.hasNextLine()) {
 			try {
 				md.add(processStudent(scan.nextLine()));
