@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 
 public class StudentRecordIO {
