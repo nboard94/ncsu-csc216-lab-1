@@ -27,7 +27,7 @@ public class Student {
 	 */
 	public void setFirstName(String firstName) {
 		if (firstName == null || firstName.isEmpty()) {
-			throw new IllegalArgumentException("First Name is null or empty");
+			throw new IllegalArgumentException("Invalid first name");
 		}
 		this.firstName = firstName;
 
