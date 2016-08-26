@@ -17,15 +17,13 @@ public class StudentRecordIO {
 		ArrayList<Student> md = new ArrayList<Student>();
 		File file = new File(fileName);
 		Scanner scan = new Scanner (file);
-		try {
-			while (scan.hasNextLine()) {
+		while (scan.hasNextLine()) {
+			try {
 				md.add(processStudent(scan.nextLine()));
 			}
+			catch (NoSuchElementException e) {
+			}
 		}
-		catch (NoSuchElementException e) {
-			scan.close();
-			throw new IllegalArgumentException();
-		}	
 		scan.close();
 		return md;
 	}
@@ -57,8 +55,7 @@ public class StudentRecordIO {
 			maxCredits = scan.nextInt();	
 		}
 		catch (NoSuchElementException e) {
-			scan.close();
-			throw new IllegalArgumentException();
+			
 		}
 		scan.close();
 		Student s = new Student(firstName,lastName,id,email,hashPW,maxCredits);
