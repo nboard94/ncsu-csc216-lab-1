@@ -38,101 +38,71 @@ public class StudentTest {
 		Student s = null; //Initialize a student reference to null
 		try {
 		    s = new Student(null, LAST_NAME, ID, EMAIL, "hashedpassword");
-		    //Note that for testing purposes, the password doesn't need to be hashedpassword
-		    fail(); //If we reach this point a Student was constructed when it shouldn't have been!
+		    fail();
 		} catch (IllegalArgumentException e) {
-		    //We should get here if the expected IllegalArgumentException is thrown, but that's not enough
-		    //for the test.  We also need to make sure that the reference s is still null!
 		    assertNull(s);
 		}
 		
 		try {
 		    s = new Student("", LAST_NAME, ID, EMAIL, "hashedpassword");
-		    //Note that for testing purposes, the password doesn't need to be hashedpassword
-		    fail(); //If we reach this point a Student was constructed when it shouldn't have been!
+		    fail();
 		} catch (IllegalArgumentException e) {
-		    //We should get here if the expected IllegalArgumentException is thrown, but that's not enough
-		    //for the test.  We also need to make sure that the reference s is still null!
 		    assertNull(s);
 		}
 		
 		try {
 		    s = new Student(FIRST_NAME, null, ID, EMAIL, "hashedpassword");
-		    //Note that for testing purposes, the password doesn't need to be hashedpassword
-		    fail(); //If we reach this point a Student was constructed when it shouldn't have been!
+		    fail();
 		} catch (IllegalArgumentException e) {
-		    //We should get here if the expected IllegalArgumentException is thrown, but that's not enough
-		    //for the test.  We also need to make sure that the reference s is still null!
 		    assertNull(s);
 		}
 		
 		try {
 		    s = new Student(FIRST_NAME, "", ID, EMAIL, "hashedpassword");
-		    //Note that for testing purposes, the password doesn't need to be hashedpassword
-		    fail(); //If we reach this point a Student was constructed when it shouldn't have been!
+		    fail();
 		} catch (IllegalArgumentException e) {
-		    //We should get here if the expected IllegalArgumentException is thrown, but that's not enough
-		    //for the test.  We also need to make sure that the reference s is still null!
 		    assertNull(s);
 		}
 		
 		try {
 		    s = new Student(FIRST_NAME, LAST_NAME, null, EMAIL, "hashedpassword");
-		    //Note that for testing purposes, the password doesn't need to be hashedpassword
-		    fail(); //If we reach this point a Student was constructed when it shouldn't have been!
+		    fail();
 		} catch (IllegalArgumentException e) {
-		    //We should get here if the expected IllegalArgumentException is thrown, but that's not enough
-		    //for the test.  We also need to make sure that the reference s is still null!
 		    assertNull(s);
 		}
 		
 		try {
 		    s = new Student(FIRST_NAME, LAST_NAME, "", EMAIL, "hashedpassword");
-		    //Note that for testing purposes, the password doesn't need to be hashedpassword
-		    fail(); //If we reach this point a Student was constructed when it shouldn't have been!
+		    fail();
 		} catch (IllegalArgumentException e) {
-		    //We should get here if the expected IllegalArgumentException is thrown, but that's not enough
-		    //for the test.  We also need to make sure that the reference s is still null!
 		    assertNull(s);
 		}
 		    
 		try {
 		    s = new Student(FIRST_NAME, LAST_NAME, ID, null, "hashedpassword");
-		    //Note that for testing purposes, the password doesn't need to be hashedpassword
-		    fail(); //If we reach this point a Student was constructed when it shouldn't have been!
+		    fail();
 		} catch (IllegalArgumentException e) {
-		    //We should get here if the expected IllegalArgumentException is thrown, but that's not enough
-		    //for the test.  We also need to make sure that the reference s is still null!
 		    assertNull(s);
 		}
 		
 		try {
 		    s = new Student(FIRST_NAME, LAST_NAME, ID, "", "hashedpassword");
-		    //Note that for testing purposes, the password doesn't need to be hashedpassword
-		    fail(); //If we reach this point a Student was constructed when it shouldn't have been!
+		    fail();
 		} catch (IllegalArgumentException e) {
-		    //We should get here if the expected IllegalArgumentException is thrown, but that's not enough
-		    //for the test.  We also need to make sure that the reference s is still null!
 		    assertNull(s);
 		}
 		
 		try {
 		    s = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, null);
-		    //Note that for testing purposes, the password doesn't need to be hashedpassword
-		    fail(); //If we reach this point a Student was constructed when it shouldn't have been!
+		    fail();
 		} catch (IllegalArgumentException e) {
-		    //We should get here if the expected IllegalArgumentException is thrown, but that's not enough
-		    //for the test.  We also need to make sure that the reference s is still null!
 		    assertNull(s);
 		}
 		
 		try {
 		    s = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, "");
-		    //Note that for testing purposes, the password doesn't need to be hashedpassword
-		    fail(); //If we reach this point a Student was constructed when it shouldn't have been!
+		    fail();
 		} catch (IllegalArgumentException e) {
-		    //We should get here if the expected IllegalArgumentException is thrown, but that's not enough
-		    //for the test.  We also need to make sure that the reference s is still null!
 		    assertNull(s);
 		}
 	}
