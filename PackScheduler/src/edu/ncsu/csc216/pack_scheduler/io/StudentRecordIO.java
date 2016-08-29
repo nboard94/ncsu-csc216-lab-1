@@ -12,8 +12,19 @@ import java.util.Scanner;
 
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 
+/**
+ * Handles input and outputs 
+ * @author James Ticatic
+ * @author Nicholas Board
+
+ */
 public class StudentRecordIO {
 
+	/**
+	 * Reads in a file of student records
+	 * @param fileName the name of the file
+	 * @return md the array list of students
+	 */
 	public static ArrayList<Student> readStudentRecords(String fileName) throws FileNotFoundException {
 		ArrayList<Student> md = new ArrayList<Student>();
 		Scanner scan = new Scanner (new FileInputStream(fileName));
@@ -22,12 +33,18 @@ public class StudentRecordIO {
 				md.add(processStudent(scan.nextLine()));
 			}
 			catch (NoSuchElementException e) {
+				scan.close();
 			}
 		}
 		scan.close();
 		return md;
 	}
 
+	/**
+	 * Writes student records into directory
+	 * @param fileName the name of the file 
+	 * @param studentDirectory the array list of students
+	 */
 	public static void writeStudentRecords(String fileName, ArrayList<Student> studentDirectory) throws IOException {
 		File file = new File(fileName);
 		FileWriter writ = new FileWriter(file);
@@ -38,6 +55,10 @@ public class StudentRecordIO {
 		
 	}
 
+	/**
+	 * Processes each individual student in the file
+	 * @param line the current line of the student being read in
+	 */
 	private static Student processStudent(String line) {
 		Scanner scan = new Scanner(line).useDelimiter(",");
 		String firstName = null;
@@ -58,7 +79,7 @@ public class StudentRecordIO {
 			scan.close();
 		}
 		scan.close();
-		Student s = new Student(firstName,lastName,id,email,hashPW,maxCredits);
+		Student s = new Student(firstName, lastName, id, email, hashPW, maxCredits);
 		return s;
 	}
 }
