@@ -109,9 +109,13 @@ public class Student {
 		if (email == null || email.isEmpty()) {
 			throw new IllegalArgumentException("Invalid email");
 		}
-		if (!email.contains("@") || !email.contains(".")) {
+		if (!email.contains("@")) {
 			throw new IllegalArgumentException("Invalid email");
 		}
+		if (!email.contains(".")) {
+			throw new IllegalArgumentException("Invalid email");
+		}
+		
 		if (email.lastIndexOf('.') < email.indexOf('@')) {
 			throw new IllegalArgumentException("Invalid email");
 		}
@@ -226,7 +230,7 @@ public class Student {
 	}
 
 	/**
-	 * Returns string as firstname,lastname,id,hashedPassword,maxCredits
+	 * Returns string as firstname, lastname, id, hashedPassword, maxCredits
 	 * @return concatenated string of fields
 	 */
 	@Override
