@@ -32,8 +32,8 @@ public class StudentRecordIO {
 			try {
 				md.add(processStudent(scan.nextLine()));
 			}
-			catch (NoSuchElementException e) {
-				scan.close();
+			catch (IllegalArgumentException e) {
+				
 			}
 		}
 		scan.close();
@@ -60,7 +60,8 @@ public class StudentRecordIO {
 	 * @param line the current line of the student being read in
 	 */
 	private static Student processStudent(String line) {
-		Scanner scan = new Scanner(line).useDelimiter(",");
+		Scanner scan = new Scanner(line);
+				scan.useDelimiter(",");
 		String firstName = null;
 		String lastName = null;
 		String id = null;
@@ -77,6 +78,7 @@ public class StudentRecordIO {
 		}
 		catch (NoSuchElementException e) {
 			scan.close();
+			throw new IllegalArgumentException();
 		}
 		scan.close();
 		Student s = new Student(firstName, lastName, id, email, hashPW, maxCredits);
