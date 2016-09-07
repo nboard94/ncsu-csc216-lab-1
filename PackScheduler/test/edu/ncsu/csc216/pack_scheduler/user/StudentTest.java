@@ -290,7 +290,7 @@ public class StudentTest {
 		Student s2 = new Student("first", "last", "id", "email@ncsu.edu", "hashedpassword", MAX_CREDITS);
 		Student s3 = new Student("first", "Different", "id", "email@ncsu.edu", "hashedpassword", MAX_CREDITS);
 		Student s4 = new Student("first", "last", "Different", "email@ncsu.edu", "hashedpassword", MAX_CREDITS);
-		Student s5 = new Student("first", "last", "id", "Different", "hashedpassword", MAX_CREDITS);
+		Student s5 = new Student("first", "last", "id", "Different@ncsu.edu", "hashedpassword", MAX_CREDITS);
 		Student s6 = new Student("first", "last", "id", "email@ncsu.edu", "Different", MAX_CREDITS);
 		Student s7 = new Student("first", "last", "id", "email@ncsu.edu", "hashedpassword", 15);
 		
