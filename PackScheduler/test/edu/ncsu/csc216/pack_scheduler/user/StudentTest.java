@@ -267,9 +267,9 @@ public class StudentTest {
 		Student s2 = new Student("first", "last", "id", "email@ncsu.edu", "hashedpassword", MAX_CREDITS);
 		Student s3 = new Student("first", "Different", "id", "email@ncsu.edu", "hashedpassword", MAX_CREDITS);
 		Student s4 = new Student("first", "last", "Different", "email@ncsu.edu", "hashedpassword", MAX_CREDITS);
-		Student s5 = new Student("first", "last", "id", "Different", "hashedpassword", MAX_CREDITS);
+		Student s5 = new Student("first", "last", "id", "Different@ncsu.edu", "hashedpassword", MAX_CREDITS);
 		Student s6 = new Student("first", "last", "id", "email@ncsu.edu", "Different", MAX_CREDITS);
-		Student s7 = new Student("first", "last", "id", "email@ncsu.edu", "hashedpassword", 15);
+		Student s7 = new Student("first", "last", "id", "email@ncsu.edu", "hashedpassword", 18);
 		
 		//Test for equality in both directions
 		assertTrue(s1.equals(s2));
@@ -292,7 +292,7 @@ public class StudentTest {
 		Student s4 = new Student("first", "last", "Different", "email@ncsu.edu", "hashedpassword", MAX_CREDITS);
 		Student s5 = new Student("first", "last", "id", "Different@ncsu.edu", "hashedpassword", MAX_CREDITS);
 		Student s6 = new Student("first", "last", "id", "email@ncsu.edu", "Different", MAX_CREDITS);
-		Student s7 = new Student("first", "last", "id", "email@ncsu.edu", "hashedpassword", 15);
+		Student s7 = new Student("first", "last", "id", "email@ncsu.edu", "hashedpassword", 18);
 		
 		//Test for the same hash code for the same values
 		assertEquals(s1.hashCode(), s2.hashCode());
