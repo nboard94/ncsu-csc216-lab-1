@@ -87,7 +87,7 @@ public class Student {
 	/**sets the id variable
 	 * @param id the id to set
 	 */
-	private void setId(String id) {
+	public void setId(String id) {
 		if (id == null || id.isEmpty()) {
 			throw new IllegalArgumentException("Invalid id");
 		}
@@ -109,10 +109,10 @@ public class Student {
 		if (email == null || email.isEmpty()) {
 			throw new IllegalArgumentException("Invalid email");
 		}
-		if (!email.contains("@")) {
+		if (!(email.contains("@"))) {
 			throw new IllegalArgumentException("Invalid email");
 		}
-		if (!email.contains(".")) {
+		if (!(email.contains("."))) {
 			throw new IllegalArgumentException("Invalid email");
 		}
 		
