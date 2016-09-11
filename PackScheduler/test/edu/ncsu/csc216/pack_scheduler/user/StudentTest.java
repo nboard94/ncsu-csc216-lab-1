@@ -310,7 +310,6 @@ public class StudentTest {
 		Student s1 = new Student("first", "last", "id", "email@ncsu.edu", "hashedpassword", MAX_CREDITS);
 		String o1 = "first,last,id,email@ncsu.edu,hashedpassword,15";
 		assertEquals(o1, s1.toString());
-		//		return firstName + "," + lastName + "," + id + "," + email + "," + hashPW + "," + maxCredits;
 
 	}
 
