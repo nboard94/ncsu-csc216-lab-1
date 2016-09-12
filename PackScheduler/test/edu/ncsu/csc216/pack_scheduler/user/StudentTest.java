@@ -273,7 +273,18 @@ public class StudentTest {
 	
 	@Test
 	public void testCompareTo() {
+		Student s1 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, HASH_PASSWORD, MAX_CREDITS);
+		Student s2 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, HASH_PASSWORD, MAX_CREDITS);
+		Student s3 = new Student("Nicholas", "Board", ID, EMAIL, HASH_PASSWORD, MAX_CREDITS);
 		
+		assertEquals(true, s1.compareTo(s2));
+		assertEquals(true, s2.compareTo(s1));
+		
+		assertEquals(false, s1.compareTo(s3));
+		assertEquals(false, s3.compareTo(s1));
+		assertEquals(false, s2.compareTo(s3));
+		assertEquals(false, s3.compareTo(s2));
+
 	}
 
 	/**Tests to make sure a student's credit hours is not

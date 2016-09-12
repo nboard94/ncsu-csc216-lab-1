@@ -241,7 +241,17 @@ public class Student implements Comparable<Student>  {
 
 	@Override
 	public int compareTo(Student s) {
-		// TODO Auto-generated method stub
+		
+		if (this.getLastName().compareTo(s.getLastName()) != 0) {
+			return this.getLastName().compareTo(s.getLastName());
+		}
+		if (this.getFirstName().compareTo(s.getFirstName()) != 0) {
+			return this.getFirstName().compareTo(s.getFirstName());
+		}
+		if (this.getId().compareTo(s.getId()) != 0) {
+			return this.getId().compareTo(s.getId());
+		}
+		
 		return 0;
 	}
 }
