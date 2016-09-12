@@ -267,6 +267,15 @@ public class StudentTest {
 		}
 	}
 
+	/**
+	 * Tests compareTo method
+	 */
+	
+	@Test
+	public void testCompareTo() {
+		
+	}
+
 	/**Tests to make sure a student's credit hours is not
 	 * less than 3 or greater than 18
 	 */
@@ -351,5 +360,4 @@ public class StudentTest {
 		assertEquals(o1, s1.toString());
 
 	}
-
 }

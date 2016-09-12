@@ -6,7 +6,7 @@ package edu.ncsu.csc216.pack_scheduler.user;
  * @author James Ticatic
  * @author Nicholas Board
  */
-public class Student {
+public class Student implements Comparable<Student>  {
 
 	/**
 	 * CONSTANT FOR MAXIMUM NUMBER OF CREDITS
@@ -237,5 +237,11 @@ public class Student {
 	@Override
 	public String toString() {
 		return firstName + "," + lastName + "," + id + "," + email + "," + hashPW + "," + maxCredits;
+	}
+
+	@Override
+	public int compareTo(Student s) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
