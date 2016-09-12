@@ -238,8 +238,23 @@ public class SortedListTest {
 		SortedList<String> list3 = new SortedList<String>();
 		
 		//TODO Make two lists the same and one list different
+		list1.add("apple");
+		list1.add("banana");
+		list1.add("cherry");
 		
+		list2.add("apple");
+		list2.add("banana");
+		list2.add("cherry");
+		
+		list3.add("not apple");
+		list3.add("not banana");
+		list3.add("not cherry");
 		//TODO Test for equality and non-equality
+		assertEquals(true, list1.equals(list2));
+		assertEquals(true, list2.equals(list1));
+		
+		assertEquals(false, list2.equals(list3));
+		assertEquals(false, list3.equals(list2));
 	}
 	
 	@Test
@@ -249,8 +264,21 @@ public class SortedListTest {
 		SortedList<String> list3 = new SortedList<String>();
 		
 		//TODO Make two lists the same and one list different
+		list1.add("apple");
+		list1.add("banana");
+		list1.add("cherry");
 		
+		list2.add("apple");
+		list2.add("banana");
+		list2.add("cherry");
+		
+		list3.add("not apple");
+		list3.add("not banana");
+		list3.add("not cherry");
 		//TODO Test for the same and different hashCodes
+		assertEquals(list1.hashCode(), list2.hashCode());
+		assertNotEquals(list2.hashCode(), list3.hashCode());
+		assertNotEquals(list1.hashCode(), list3.hashCode());
 	}
 
 }
