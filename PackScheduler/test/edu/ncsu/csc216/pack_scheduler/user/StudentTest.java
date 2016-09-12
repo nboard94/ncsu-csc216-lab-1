@@ -343,6 +343,7 @@ public class StudentTest {
 	/**Tests to makes sure that the toString method produces the expected
 	 * string output
 	 */
+	
 	@Test
 	public void testToString() {
 		Student s1 = new Student("first", "last", "id", "email@ncsu.edu", "hashedpassword", MAX_CREDITS);
