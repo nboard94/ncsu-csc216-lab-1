@@ -71,6 +71,12 @@ public class StudentRecordIOTest {
 		} catch (FileNotFoundException e) {
 			fail("Unexpected FileNotFoundException");
 		}
+		try {
+			courses = StudentRecordIO.readStudentRecords("Invalid");
+			fail();
+		} catch (FileNotFoundException e) {
+			assertEquals("Invalid (The system cannot find the file specified)", e.getMessage());
+		}
 	}
 
 	@Test
