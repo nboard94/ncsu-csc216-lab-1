@@ -40,9 +40,20 @@ public class SortedListTest {
 		assertEquals("cherry", list.get(3));
 		
 		//TODO Test adding a null element
-
+		try {
+			list.add(null);
+			fail();
+		} catch (NullPointerException e) {
+			assertEquals(4, list.size());
+		}
 		
 		//TODO Test adding a duplicate element
+		try {
+			list.add("apple");
+			fail();
+		} catch (IllegalArgumentException e) {
+			assertEquals(4, list.size());
+		}
 	}
 	
 	@Test
@@ -55,13 +66,30 @@ public class SortedListTest {
 		//and boundary cases.
 		
 		//TODO Test getting an element from an empty list
-		
+		try {
+			list.get(0);
+			fail();
+		} catch (IndexOutOfBoundsException e){
+			//intentionally left empty
+		}
 		//TODO Add some elements to the list
-		
+		list.add("apple");
+		list.add("banana");
+		list.add("cherry");
 		//TODO Test getting an element at an index < 0
-		
+		try {
+			list.get(-1);
+			fail();
+		} catch (IndexOutOfBoundsException e){
+			//intentionally left empty
+		}
 		//TODO Test getting an element at size
-		
+		try {
+			list.get(3);
+			fail();
+		} catch (IndexOutOfBoundsException e){
+			//intentionally left empty
+		}
 	}
 	
 	@Test
@@ -69,20 +97,44 @@ public class SortedListTest {
 		SortedList<String> list = new SortedList<String>();
 		
 		//TODO Test removing from an empty list
+		try {
+			list.remove(0);
+			fail();
+		} catch (IndexOutOfBoundsException e){
+			assertEquals(0, list.size());
+		}
 		
 		//TODO Add some elements to the list - at least 4
-		
+		list.add("apple");
+		list.add("banana");
+		list.add("cherry");
+		list.add("pear");
 		//TODO Test removing an element at an index < 0
-		
+		try {
+			list.remove(-1);
+			fail();
+		} catch (IndexOutOfBoundsException e){
+			assertEquals(4, list.size());
+		}
 		//TODO Test removing an element at size
-		
+		try {
+			list.remove(4);
+			fail();
+		} catch (IndexOutOfBoundsException e){
+			assertEquals(4, list.size());
+		}
 		//TODO Test removing a middle element
-		
+		list.remove(2);
+		assertEquals(3, list.size());
 		//TODO Test removing the last element
-		
+		list.remove(2);
+		assertEquals(2, list.size());
 		//TODO Test removing the first element
-		
+		list.remove(0);
+		assertEquals(1, list.size());
 		//TODO Test removing the last element
+		list.remove(0);
+		assertEquals(0, list.size());
 	}
 	
 	@Test
