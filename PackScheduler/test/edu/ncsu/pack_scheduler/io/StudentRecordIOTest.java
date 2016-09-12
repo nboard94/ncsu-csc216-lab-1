@@ -76,15 +76,16 @@ public class StudentRecordIOTest {
 	@Test
 	public void testWriteStudentRecords()  {
 		ArrayList<Student> students = new ArrayList<Student>();
+		students.add(new Student("Zahir", "King", "zking", "orci.Donec@ametmassaQuisque.com", hashPW, 15));
 		setUp();
 		
 		try {
-			StudentRecordIO.writeStudentRecords("test-files/actual_course_records.txt", students);
+			StudentRecordIO.writeStudentRecords("test-files/actual_student_records.txt", students);
 		} catch (IOException e) {
 			fail("Cannot write to course records file");
 		}
 		
-		checkFiles("test-files/expected_course_records.txt", "test-files/actual_course_records.txt");
+		checkFiles("test-files/expected_student_records.txt", "test-files/actual_student_records.txt");
 	}
 	
 	@Test
