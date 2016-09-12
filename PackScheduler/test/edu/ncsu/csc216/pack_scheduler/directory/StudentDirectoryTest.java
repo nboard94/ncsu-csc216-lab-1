@@ -3,6 +3,7 @@ package edu.ncsu.csc216.pack_scheduler.directory;
 import static org.junit.Assert.*;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -87,6 +88,13 @@ public class StudentDirectoryTest {
 		//Test valid file
 		sd.loadStudentsFromFile(validTestFile);
 		assertEquals(10, sd.getStudentDirectory().length);
+		
+		try {
+			sd.loadStudentsFromFile("invalid");
+			fail();
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to read file invalid" , e.getMessage());
+		}
 	}
 
 	/**
