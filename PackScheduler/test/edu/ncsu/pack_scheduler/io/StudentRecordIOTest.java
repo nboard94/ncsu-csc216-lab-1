@@ -17,6 +17,11 @@ import edu.ncsu.csc216.pack_scheduler.io.StudentRecordIO;
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 
 
+/**
+ * Tests the StudentRecordIOTest class
+ * 
+ * @author James Ticatic and Nick Board
+ */
 public class StudentRecordIOTest {
 	
 	/** Expected results for valid courses */
@@ -38,6 +43,9 @@ public class StudentRecordIOTest {
 	private String hashPW;
 	private static final String HASH_ALGORITHM = "SHA-256";
 
+	/**Sets up the hash algorithm.
+	 * Handles NoSuchAlgorithmException.
+	 */
 	@Before
 	public void setUp() {
 	    try {
@@ -53,6 +61,13 @@ public class StudentRecordIOTest {
 	        fail("Unable to create hash during setup");
 	    }
 	}
+	
+	/**test to make sure the method can read in from a file to
+	 * the ArrayList of Students by using both correctly and incorrectly
+	 * formatted files.  Checks to make sure the size of the arraylist is
+	 * the expected size.  Handles the FileNotFound exception.
+	 * 
+	 */
 	@Test
 	public void testReadStudentRecords() {
 		String validTestFile = "test-files/student_records.txt";
@@ -79,6 +94,10 @@ public class StudentRecordIOTest {
 		}
 	}
 
+	/**Tests to make sure the method can write from an arraylist to a file
+	 * as expected.  
+	 * Handles IOExceptions.
+	 */
 	@Test
 	public void testWriteStudentRecords()  {
 		ArrayList<Student> students = new ArrayList<Student>();
@@ -94,6 +113,10 @@ public class StudentRecordIOTest {
 		checkFiles("test-files/expected_student_records.txt", "test-files/actual_student_records.txt");
 	}
 	
+	/**Tests to make sure that you cannot write to a file without the 
+	 * proper permission.
+	 * Handles IOException
+	 */
 	@Test
 	public void testWriteStudentRecordsNoPermissions() {
 	    ArrayList<Student> students = new ArrayList<Student>();
@@ -110,6 +133,14 @@ public class StudentRecordIOTest {
 	    
 	    checkFiles("ts-test-files/expected_student_records.txt", "ts-test-files/actual_student_records.txt");
 	}
+	
+	
+	/**Compares the actual information in a file to the expected
+	 * information to be contained in the file.
+	 * Handles IOException
+	 * @param expFile
+	 * @param actFile
+	 */
 	private void checkFiles(String expFile, String actFile) {
 	    try {
 	        Scanner expScanner = new Scanner(new FileInputStream(expFile));
