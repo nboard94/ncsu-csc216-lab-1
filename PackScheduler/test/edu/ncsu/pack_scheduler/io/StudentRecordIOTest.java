@@ -18,24 +18,40 @@ import edu.ncsu.csc216.pack_scheduler.user.Student;
 
 
 public class StudentRecordIOTest {
+	
+	/** Expected results for valid courses */
+	private final String validCourse1 = "Zahir,King,zking,orci.Donec@ametmassaQuisque.com,pw,15";
+	private final String validCourse2 = "Cassandra,Schwartz,cschwartz,semper@imperdietornare.co.uk,pw,4";
+	private final String validCourse3 = "Shannon,Hansen,shansen,convallis.est.vitae@arcu.ca,pw,14";
+	private final String validCourse4 = "Demetrius,Austin,daustin,Curabitur.egestas.nunc@placeratorcilacus.co.uk,pw,18";
+	private final String validCourse5 = "Raymond,Brennan,rbrennan,litora.torquent@pellentesquemassalobortis.ca,pw,12";
+	private final String validCourse6 = "Emerald,Frost,efrost,adipiscing@acipsumPhasellus.edu,pw,3";
+	private final String validCourse7 = "Lane,Berg,lberg,sociis@non.org,pw,14";
+	private final String validCourse8 = "Griffith,Stone,gstone,porta@magnamalesuadavel.net,pw,17";
+	private final String validCourse9 = "Althea,Hicks,ahicks,Phasellus.dapibus@luctusfelis.com,pw,11";
+	private final String validCourse10 = "Dylan,Nolan,dnolan,placerat.Cras.dictum@dictum.net,pw,5";
+	
+	/** Array to hold expected results */
+	private final String [] validStudents = {validCourse1, validCourse2, validCourse3, validCourse4,
+			validCourse5, validCourse6, validCourse7, validCourse8, validCourse9, validCourse10};
+
 	private String hashPW;
 	private static final String HASH_ALGORITHM = "SHA-256";
-	
+
 	@Before
 	public void setUp() {
-//	    try {
-//	        String password = "pw";
-//	        MessageDigest digest = MessageDigest.getInstance(HASH_ALGORITHM);
-//	        digest.update(password.getBytes());
-//	        hashPW = new String(digest.digest());
-//	        
-//	        Object[] validStudents = null;
-//			for (int i = 0; i < validStudents.length; i++) {
-//	            validStudents[i] = ((String) validStudents[i]).replace(",pw,", "," + hashPW + ",");
-//	        }
-//	    } catch (NoSuchAlgorithmException e) {
-//	        fail("Unable to create hash during setup");
-//	    }
+	    try {
+	        String password = "pw";
+	        MessageDigest digest = MessageDigest.getInstance(HASH_ALGORITHM);
+	        digest.update(password.getBytes());
+	        hashPW = new String(digest.digest());
+	        
+	        for (int i = 0; i < validStudents.length; i++) {
+	            validStudents[i] = validStudents[i].replace(",pw,", "," + hashPW + ",");
+	        }
+	    } catch (NoSuchAlgorithmException e) {
+	        fail("Unable to create hash during setup");
+	    }
 	}
 	@Test
 	public void testReadStudentRecords() {
@@ -58,10 +74,35 @@ public class StudentRecordIOTest {
 	}
 
 	@Test
-	public void testWriteStudentRecords() {
-		fail("Not yet implemented");
+	public void testWriteStudentRecords()  {
+		ArrayList<Student> students = new ArrayList<Student>();
+		setUp();
+		
+		try {
+			StudentRecordIO.writeStudentRecords("test-files/actual_course_records.txt", students);
+		} catch (IOException e) {
+			fail("Cannot write to course records file");
+		}
+		
+		checkFiles("test-files/expected_course_records.txt", "test-files/actual_course_records.txt");
 	}
 	
+	@Test
+	public void testWriteStudentRecordsNoPermissions() {
+	    ArrayList<Student> students = new ArrayList<Student>();
+	    students.add(new Student("Zahir", "King", "zking", "orci.Donec@ametmassaQuisque.com", hashPW, 15));
+	    //Assumption that you are using a hash of "pw" stored in hashPW
+	    
+	    try {
+	        StudentRecordIO.writeStudentRecords("/home/sesmith5/actual_student_records.txt", students);
+	        fail("Attempted to write to a directory location that doesn't exist or without the appropriate permissions and the write happened.");
+	    } catch (IOException e) {
+	        assertEquals("/home/sesmith5/actual_student_records.txt (Permission denied)", e.getMessage());
+	        //The actual error message on Jenkins!
+	    }
+	    
+	    checkFiles("ts-test-files/expected_student_records.txt", "ts-test-files/actual_student_records.txt");
+	}
 	private void checkFiles(String expFile, String actFile) {
 	    try {
 	        Scanner expScanner = new Scanner(new FileInputStream(expFile));
