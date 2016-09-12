@@ -33,7 +33,7 @@ public class StudentRecordIO {
 				md.add(processStudent(scan.nextLine()));
 			}
 			catch (IllegalArgumentException e) {
-				
+				//Student is not added
 			}
 		}
 		scan.close();
