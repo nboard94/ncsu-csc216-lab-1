@@ -14,6 +14,19 @@ public class SortedListTest {
 		
 		//TODO Test that the list grows by adding at least 11 elements
 		//Remember the list's initial capacity is 10
+		list.add("apple");
+		list.add("banana");
+		list.add("cherry");
+		list.add("durian");
+		list.add("fruit");
+		list.add("grape");
+		list.add("lemon");
+		list.add("lime");
+		list.add("melon");
+		list.add("pineapple");
+		list.add("strawberry");
+		
+		assertEquals(11, list.size());
 		
 		
 	}
@@ -142,13 +155,27 @@ public class SortedListTest {
 		SortedList<String> list = new SortedList<String>();
 		
 		//TODO Test indexOf on an empty list
+		assertEquals(-1, list.indexOf("Pineapple"));
 		
 		//TODO Add some elements
+		list.add("apple");
+		list.add("banana");
+		list.add("cherry");
 		
 		//TODO Test various calls to indexOf for elements in the list
 		//and not in the list
+		assertEquals(0, list.indexOf("apple"));
+		assertEquals(1, list.indexOf("banana"));
+		assertEquals(2, list.indexOf("cherry"));
+		
+		assertEquals(-1, list.indexOf("Pineapple"));
 		
 		//TODO Test checking the index of null
+		try {
+			list.indexOf(null);
+		} catch (NullPointerException e) {
+			assertEquals(3, list.size());
+		}
 		
 	}
 	
@@ -157,10 +184,15 @@ public class SortedListTest {
 		SortedList<String> list = new SortedList<String>();
 
 		//TODO Add some elements
+		list.add("apple");
+		list.add("banana");
+		list.add("cherry");
 		
 		//TODO Clear the list
+		list.clear();
 		
 		//TODO Test that the list is empty
+		assertEquals(0, list.size());
 	}
 
 	@Test
@@ -168,10 +200,13 @@ public class SortedListTest {
 		SortedList<String> list = new SortedList<String>();
 		
 		//TODO Test that the list starts empty
+		assertEquals(true, list.isEmpty());		
 		
 		//TODO Add at least one element
+		list.add("apple");
 		
 		//TODO Check that the list is no longer empty
+		assertEquals(false, list.isEmpty());
 	}
 
 	@Test
@@ -179,10 +214,21 @@ public class SortedListTest {
 		SortedList<String> list = new SortedList<String>();
 		
 		//TODO Test the empty list case
+		assertEquals(false, list.contains("apple"));
 		
 		//TODO Add some elements
+		list.add("apple");
+		list.add("banana");
+		list.add("cherry");
 		
 		//TODO Test some true and false cases
+		assertEquals(true, list.contains("apple"));
+		assertEquals(true, list.contains("banana"));
+		assertEquals(true, list.contains("cherry"));
+		
+		assertEquals(false, list.contains("pineapple"));
+
+
 	}
 	
 	@Test
