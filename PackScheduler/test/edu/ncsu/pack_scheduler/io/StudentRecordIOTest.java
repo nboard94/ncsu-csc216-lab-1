@@ -75,7 +75,7 @@ public class StudentRecordIOTest {
 			courses = StudentRecordIO.readStudentRecords("Invalid");
 			fail();
 		} catch (FileNotFoundException e) {
-			assertEquals("Invalid (The system cannot find the file specified)", e.getMessage());
+			assertEquals("Invalid (No such file or directory)", e.getMessage());
 		}
 	}
 
