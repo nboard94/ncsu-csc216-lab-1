@@ -1,9 +1,10 @@
 package edu.ncsu.csc216.pack_scheduler.user;
+
+
 /**Class for the Student object, has getters, setters, and methods to overwrite equals, hashCode,
  * and toString default java classes
  * @author James Ticatic
  * @author Nicholas Board
-
  */
 public class Student {
 
