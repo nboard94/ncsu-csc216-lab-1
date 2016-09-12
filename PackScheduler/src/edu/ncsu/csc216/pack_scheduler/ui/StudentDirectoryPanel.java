@@ -219,7 +219,7 @@ public class StudentDirectoryPanel extends JPanel implements ActionListener {
 			String id = txtId.getText();
 			String email = txtEmail.getText();
 			char[] password = txtPassword.getPassword();
-			char[] repeatPassword = txtPassword.getPassword();
+			char[] repeatPassword = txtRepeatPassword.getPassword();
 			int maxCredits = 0;
 			try {
 				maxCredits = Integer.parseInt(txtMaxCredits.getText());
