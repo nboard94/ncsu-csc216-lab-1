@@ -242,14 +242,14 @@ public class Student implements Comparable<Student>  {
 	@Override
 	public int compareTo(Student s) {
 		
-		if (this.getLastName().compareTo(s.getLastName()) != 0) {
-			return this.getLastName().compareTo(s.getLastName());
+		if (((Character)this.getLastName().charAt(0)).compareTo(((Character)s.getLastName().charAt(0))) != 0) {
+			return (int) Math.signum(this.getLastName().compareTo(s.getLastName()));
 		}
-		if (this.getFirstName().compareTo(s.getFirstName()) != 0) {
-			return this.getFirstName().compareTo(s.getFirstName());
+		if (((Character)this.getFirstName().charAt(0)).compareTo(((Character)s.getFirstName().charAt(0))) != 0) {
+			return (int) Math.signum(this.getFirstName().compareTo(s.getFirstName()));
 		}
-		if (this.getId().compareTo(s.getId()) != 0) {
-			return this.getId().compareTo(s.getId());
+		if (((Character)this.getId().charAt(0)). compareTo(((Character)s.getId().charAt(0))) != 0) {
+			return (int) Math.signum(this.getId().compareTo(s.getId()));
 		}
 		
 		return 0;

@@ -273,17 +273,22 @@ public class StudentTest {
 	
 	@Test
 	public void testCompareTo() {
-		Student s1 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, HASH_PASSWORD, MAX_CREDITS);
-		Student s2 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, HASH_PASSWORD, MAX_CREDITS);
-		Student s3 = new Student("Nicholas", "Board", ID, EMAIL, HASH_PASSWORD, MAX_CREDITS);
+		Student s1 = new Student("Abraham", "Lincoln", "aLincoln", "aLincoln@whitehouse.gov", "passworrd", 15);
+		Student s2 = new Student("George", "Washginton", "gWashin", "president@whitehouse.gov", "password", 15);
+		Student s3 = new Student("George", "Bush", "gBush", "gBush@whitehouse.gov", "password", 15);
+		Student s4 = new Student("George", "Bush", "gwBush", "gwBush@whitehouse.gov", "password", 15);
 		
-		assertEquals(true, s1.compareTo(s2));
-		assertEquals(true, s2.compareTo(s1));
+		//Test for compareTo to operate on lastName
+		assertEquals(1, s2.compareTo(s3));
+		assertEquals(-1, s3.compareTo(s2));
 		
-		assertEquals(false, s1.compareTo(s3));
-		assertEquals(false, s3.compareTo(s1));
-		assertEquals(false, s2.compareTo(s3));
-		assertEquals(false, s3.compareTo(s2));
+		//Test for compareTo to operate on firstName
+		assertEquals(-1, s1.compareTo(s2));
+		assertEquals(1, s2.compareTo(s1));
+		
+		//Test for compareTo to operate on studentId
+		assertEquals(-1, s3.compareTo(s4));
+		assertEquals(1, s4.compareTo(s3));
 
 	}
 
