@@ -36,7 +36,7 @@ public class StudentRecordIOTest {
 	private final String validCourse9 = "Althea,Hicks,ahicks,Phasellus.dapibus@luctusfelis.com,pw,11";
 	private final String validCourse10 = "Dylan,Nolan,dnolan,placerat.Cras.dictum@dictum.net,pw,5";
 	
-	/** Array to hold expected results */
+	/** SortedList to hold expected results */
 	private final String [] validStudents = {validCourse1, validCourse2, validCourse3, validCourse4,
 			validCourse5, validCourse6, validCourse7, validCourse8, validCourse9, validCourse10};
 
@@ -63,8 +63,8 @@ public class StudentRecordIOTest {
 	} 
 	
 	/**test to make sure the method can read in from a file to
-	 * the ArrayList of Students by using both correctly and incorrectly
-	 * formatted files.  Checks to make sure the size of the arraylist is
+	 * the SortedList of Students by using both correctly and incorrectly
+	 * formatted files.  Checks to make sure the size of the sortedlist is
 	 * the expected size.  Handles the FileNotFound exception.
 	 * 
 	 */
@@ -94,7 +94,7 @@ public class StudentRecordIOTest {
 		}
 	}
 
-	/**Tests to make sure the method can write from an arraylist to a file
+	/**Tests to make sure the method can write from an sortedlist to a file
 	 * as expected.  
 	 * Handles IOExceptions.
 	 */

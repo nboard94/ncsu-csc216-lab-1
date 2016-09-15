@@ -255,7 +255,7 @@ public class Student implements Comparable<Student>  {
 		}
 
 		for (int i = 0; i < this.getId().length(); i++) {
-			if (((Character)this.getId().charAt(i)). compareTo(((Character)s.getId().charAt(i))) != 0) {
+			if (((Character)this.getId().charAt(i)).compareTo(((Character)s.getId().charAt(i))) != 0) {
 				return (int) Math.signum(this.getId().compareTo(s.getId()));
 			}
 		}

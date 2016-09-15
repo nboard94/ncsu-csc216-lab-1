@@ -22,7 +22,7 @@ public class StudentRecordIO {
 	/**
 	 * Reads in a file of student records
 	 * @param fileName the name of the file
-	 * @return md the array list of students
+	 * @return md the sortedlist of students
 	 */
 	public static SortedList<Student> readStudentRecords(String fileName) throws FileNotFoundException {
 		SortedList<Student> md = new SortedList<Student>();
@@ -42,7 +42,7 @@ public class StudentRecordIO {
 	/**
 	 * Writes student records into directory
 	 * @param fileName the name of the file 
-	 * @param studentDirectory the array list of students
+	 * @param studentDirectory the sortedlist of students
 	 */
 	public static void writeStudentRecords(String fileName, SortedList<Student> studentDirectory) throws IOException {
 		File file = new File(fileName);
