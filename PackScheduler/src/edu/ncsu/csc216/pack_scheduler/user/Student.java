@@ -242,14 +242,22 @@ public class Student implements Comparable<Student>  {
 	@Override
 	public int compareTo(Student s) {
 		
-		if (((Character)this.getLastName().charAt(0)).compareTo(((Character)s.getLastName().charAt(0))) != 0) {
-			return (int) Math.signum(this.getLastName().compareTo(s.getLastName()));
+		for (int i = 0; i < this.getLastName().length(); i++) {
+			if (((Character)this.getLastName().charAt(i)).compareTo(((Character)s.getLastName().charAt(i))) != 0) {
+				return (int) Math.signum(this.getLastName().compareTo(s.getLastName()));
+			}
 		}
-		if (((Character)this.getFirstName().charAt(0)).compareTo(((Character)s.getFirstName().charAt(0))) != 0) {
-			return (int) Math.signum(this.getFirstName().compareTo(s.getFirstName()));
+		
+		for (int i = 0; i < this.getFirstName().length(); i++) {
+			if (((Character)this.getFirstName().charAt(i)).compareTo(((Character)s.getFirstName().charAt(i))) != 0) {
+				return (int) Math.signum(this.getFirstName().compareTo(s.getFirstName()));
+			}
 		}
-		if (((Character)this.getId().charAt(0)). compareTo(((Character)s.getId().charAt(0))) != 0) {
-			return (int) Math.signum(this.getId().compareTo(s.getId()));
+
+		for (int i = 0; i < this.getId().length(); i++) {
+			if (((Character)this.getId().charAt(i)). compareTo(((Character)s.getId().charAt(i))) != 0) {
+				return (int) Math.signum(this.getId().compareTo(s.getId()));
+			}
 		}
 		
 		return 0;
