@@ -60,7 +60,7 @@ public class StudentRecordIOTest {
 	    } catch (NoSuchAlgorithmException e) {
 	        fail("Unable to create hash during setup");
 	    }
-	}
+	} 
 	
 	/**test to make sure the method can read in from a file to
 	 * the ArrayList of Students by using both correctly and incorrectly

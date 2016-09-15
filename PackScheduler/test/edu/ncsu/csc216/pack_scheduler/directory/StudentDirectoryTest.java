@@ -3,7 +3,6 @@ package edu.ncsu.csc216.pack_scheduler.directory;
 import static org.junit.Assert.*;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
