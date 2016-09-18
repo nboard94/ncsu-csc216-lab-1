@@ -87,7 +87,10 @@ public class StudentDirectoryTest {
 		//Test valid file
 		sd.loadStudentsFromFile(validTestFile);
 		assertEquals(10, sd.getStudentDirectory().length);
-		
+		String [][] studentDirectory = sd.getStudentDirectory();
+		assertEquals("Demetrius", studentDirectory[0][0]);
+		assertEquals("Austin", studentDirectory[0][1]);
+		assertEquals("daustin", studentDirectory[0][2]);
 		try {
 			sd.loadStudentsFromFile("invalid");
 			fail();
@@ -125,9 +128,9 @@ public class StudentDirectoryTest {
 		assertTrue(sd.removeStudent("efrost"));
 		String [][] studentDirectory = sd.getStudentDirectory();
 		assertEquals(9, studentDirectory.length);
-		assertEquals("Lane", studentDirectory[5][0]);
-		assertEquals("Berg", studentDirectory[5][1]);
-		assertEquals("lberg", studentDirectory[5][2]);
+		assertEquals("Demetrius", studentDirectory[0][0]);
+		assertEquals("Austin", studentDirectory[0][1]);
+		assertEquals("daustin", studentDirectory[0][2]);
 	}
 
 	/**
