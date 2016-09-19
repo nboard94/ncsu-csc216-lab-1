@@ -34,7 +34,7 @@ public class CourseCatalog {
 	 * file cannot be found.
 	 * @param fileName file containing list of students
 	 */
-	public void loadStudentsFromFile(String fileName) {
+	public void loadCoursesFromFile(String fileName) {
 		try {
 			catalog = CourseRecordIO.readCourseRecords(fileName);
 		} catch (FileNotFoundException e) {
