@@ -3,8 +3,7 @@ package edu.ncsu.csc216.pack_scheduler.course;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
-import edu.ncsu.csc216.pack_scheduler.user.Student;
+import edu.ncsu.csc216.pack_scheduler.course.Course;
 
 /**
  * Tests the Course class.
@@ -709,5 +708,50 @@ public class CourseTest {
 		//Test for compareTo on different sections same name
 		assertEquals(-1, c1.compareTo(c4));
 		assertEquals(1, c4.compareTo(c1));
+	}
+	
+	/**
+	 * Tests Course.getShortDisplayArray().
+	 */
+	@Test
+	public void testGetShortDisplayArray() {
+		Course c = new Course(NAME, TITLE, SECTION, CREDITS, INSTRUCTOR_ID, MEETING_DAYS, START_TIME, END_TIME);
+		assertEquals(NAME, c.getName());
+		assertEquals(TITLE, c.getTitle());
+		assertEquals(SECTION, c.getSection());
+		assertEquals(CREDITS, c.getCredits());
+		assertEquals(INSTRUCTOR_ID, c.getInstructorId());
+		assertEquals(MEETING_DAYS, c.getMeetingDays());
+		assertEquals(START_TIME, c.getStartTime());
+		assertEquals(END_TIME, c.getEndTime());
+		String [] actualShortDisplay = c.getShortDisplayArray();
+		assertEquals(NAME, actualShortDisplay[0]);
+		assertEquals(SECTION, actualShortDisplay[1]);
+		assertEquals(TITLE, actualShortDisplay[2]);
+		assertEquals("MW 1:30PM-2:45PM", actualShortDisplay[3]);
+	}
+
+	/**
+	 * Tests Course.getLongDisplayArray().
+	 */
+	@Test
+	public void testGetLongDisplayArray() {
+		Course c = new Course(NAME, TITLE, SECTION, CREDITS, INSTRUCTOR_ID, MEETING_DAYS, START_TIME, END_TIME);
+		assertEquals(NAME, c.getName());
+		assertEquals(TITLE, c.getTitle());
+		assertEquals(SECTION, c.getSection());
+		assertEquals(CREDITS, c.getCredits());
+		assertEquals(INSTRUCTOR_ID, c.getInstructorId());
+		assertEquals(MEETING_DAYS, c.getMeetingDays());
+		assertEquals(START_TIME, c.getStartTime());
+		assertEquals(END_TIME, c.getEndTime());
+		String [] actualLongDisplay = c.getLongDisplayArray();
+		assertEquals(NAME, actualLongDisplay[0]);
+		assertEquals(SECTION, actualLongDisplay[1]);
+		assertEquals(TITLE, actualLongDisplay[2]);
+		assertEquals("" + CREDITS, actualLongDisplay[3]);
+		assertEquals(INSTRUCTOR_ID, actualLongDisplay[4]);
+		assertEquals("MW 1:30PM-2:45PM", actualLongDisplay[5]);
+		assertEquals("", actualLongDisplay[6]);
 	}
 }

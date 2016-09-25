@@ -29,7 +29,7 @@ public class CourseCatalog {
 	}
 	
 	/**
-	 * Constructs the student directory by reading in student information
+	 * Constructs the course catalog by reading in student information
 	 * from the given file.  Throws an IllegalArgumentException if the 
 	 * file cannot be found.
 	 * @param fileName file containing list of students
