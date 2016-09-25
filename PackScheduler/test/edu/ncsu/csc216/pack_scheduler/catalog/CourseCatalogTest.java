@@ -12,10 +12,9 @@ import java.util.Scanner;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.ncsu.csc216.pack_scheduler.directory.StudentDirectory;
 
 /**
- * Tests StudentDirectory.
+ * Tests CourseCatalog
  * @author James Ticatic
  */
 public class CourseCatalogTest {
@@ -81,7 +80,7 @@ public class CourseCatalogTest {
 		CourseCatalog catalog = new CourseCatalog();
 		
 		//Test valid Course
-		catalog.addCourseToCatalog("CSC116","Intro to Programming - Java","003",3,"spbalik","MW",1250,1440);
+		catalog.addCourseToCatalog("CSC116", "Intro to Programming - Java", "003", 3, "spbalik", "MW", 1250, 1440);
 		String [][] courseCatalog = catalog.getCourseCatalog();
 		assertEquals(1, courseCatalog.length);
 		assertEquals("CSC116", courseCatalog[0][0]);
@@ -89,7 +88,7 @@ public class CourseCatalogTest {
 		assertEquals("Intro to Programming - Java", courseCatalog[0][2]);
 		
 		//Test adding same course twice
-		assertEquals(catalog.addCourseToCatalog("CSC116","Intro to Programming - Java","003",3,"spbalik","MW",1250,1440), false);
+		assertEquals(catalog.addCourseToCatalog("CSC116", "Intro to Programming - Java", "003", 3, "spbalik", "MW", 1250, 1440), false);
 	}
 	
 	/**

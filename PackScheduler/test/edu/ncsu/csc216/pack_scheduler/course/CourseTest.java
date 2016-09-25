@@ -691,6 +691,9 @@ public class CourseTest {
 		assertEquals(s2, c2.toString());
 	}
 
+	/**
+	 * Tests Course.compareTo().
+	 */
 	@Test
 	public void testCompareTo() {
 		Course c1 = new Course(NAME, TITLE, SECTION, CREDITS, INSTRUCTOR_ID, MEETING_DAYS, START_TIME, END_TIME);
